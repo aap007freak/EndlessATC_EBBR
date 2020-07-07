@@ -93,7 +93,7 @@ airlines =
 	bel,	3,	a319/a320/a332/a333,	beeline,	nw
 	bel,	3,	a319/a320/a332/a333,	beeline,	s
 	aal,	1,	a333/e175,	american,	nw
-	aca,	1,	a333/e175,	aircanada,	n
+	aca,	1,	a333,	aircanada,	n
 	ryr, 	2,	b738,		ryanair,	se
 #	oo-spw, 1, 	c210/c172, 0, n
 #	air,	2,	dh8d,		airliner,	n
