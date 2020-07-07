@@ -1,0 +1,203 @@
+# DISCLAIMER: this is for edutainment purposes online! Not to be used for training.
+# All lat/longs and other info taken directly from eaip.
+
+#Yet to be implemented
+# 1. Other runway configs (01/07R config e.g.)
+# 2. Secondary airports
+# 3. Airspace
+
+#Issues
+# 1. All arrivals descend fl80 instead of fl60 by flora. Endless ATC only accepts one flightlevel for ALL arrivals, so there's nothing that can be done about it.
+# 	(fl70 would interfere with departures)
+# 2. You need to climb the departures higher than fl70, this is a bug as far as i know, and should be fixed soon.
+
+
+
+##############################################################
+[airspace]
+##############################################################
+
+radius = 30			; airspace radius in NM
+zoom = 7.0 			; default zoom level, increase to zoom in
+elevation = 175 			; ground altitude in feet
+floor = 1500 			; minimum selectable altitude
+descendaltitude = 8000 		; minimum initial altitude for arrivals
+ceiling = 7000 			; maximum selectable altitude
+above = 0 			; SID top altitude in feet (above ceiling)
+transition = 5000		; lowest altitude in feet to be displayed as flight level
+speedrestriction = 18, 220 	; radius in NM, and speed in knots
+usa = false			; American-style callsign pronunciation and runway names
+metric = false			; display altitudes in metres instead of feet
+center = N050.54.00.000, E004.30.00.000	; lat/long location of center of radar display (required when using lat/long coordinates elsewhere in this file)
+magneticvar = 1.0		; magnetic variance; east = positive (used to rotate lat/long coordinates if defined below)
+
+
+beacons =
+#	vor,	0,	-3,	0,	main v-o-r
+#	bco,	18.6,	6.8,	090,	beacon two
+#	trd,	N50.0, E2.1,	-090,	the third one
+	BUB,	N050.54.08.398, E004.32.17.098, 0, Brussels
+	ANT,	N051.11.25.738, E004.28.21.298, -170, Antwerpen
+	BUB,	N050.54.08.398, E004.32.17.098, 0, Brussels
+	FLO,	N050.52.35.990, E005.08.04.318, 308, Flora
+	CIV,	N050.34.19.999,	E003.49.18.001, 0, Chievres
+	HUL,	N050.44.58.138,	E004.38.29.900, 0, Huldenberg
+	BUN, 	N051.07.07.089,	E004.50.31.549, 0, Bruno 
+
+##############################################################
+[airport1]
+##############################################################
+
+name = Brussels Airport; name of the main airport
+code = EBBR			; four letter code, displayed in airport menu (required)
+
+runways = 
+#	rwy1,	36,	-4.3,	3.23,	360.0,	11400,	0,	0,	100,	3,	360.0,	3,	180.0,	YY,	8.0,	ZZ,	8.5
+	25r,	25r, N050.54.41.558, E004.29.57.800, 245, 0, 0, 175, 3
+	25l,	25l, N050.53.56.191, E004.31.23.879, 250, 0, 0, 175, 3 
+
+## identifier, name, position, true_heading, <length>, <displaced>, <displaced2>, <elevation>, <glideslope>, <localizer>, <glideslope2>, <localizer2>, <beaconname, distance>, <beaconname2, distance2>
+# where identifier is a unique name used to define a runway usage configuration below
+# name is one or two digits, optionally suffixed with an L, R or C character
+# position is the location of the beginning of the runway (including displaced threshold)
+# length is in feet
+# displaced threshold length in feet (for landings), displaced2 is for the other end of the runway
+# elevation is in feet, and must be within 1000 feet difference from the airspace ground elevation defined above
+# glideslope is the angle in degrees; the default value is 3
+# localizer is the true heading in degrees of the ILS until touchdown; by default it's the same as runway true heading, but a small offset is allowed
+# beacon is a point on the localizer at a certain distance (NM) from the threshold
+# second beacon is a point on the localizer when runway is used in opposite direction (rev)
+
+climbaltitude = 6000 		; maximum initial climb altitude in feet or departures
+
+sids = 
+#	north,	0,	25,	northbound
+#	south,	0,	-25,	southbound
+	DENUT, 	N051.14.10.039,	E003.39.27.359,		denut
+	HELEN, 	N051.14.07.130,	E003.52.10.959,		helen
+	CIV
+	HUL
+
+## name, position, <pronunciation>
+# you may also give just the name of a beacon from the beacon list
+
+entrypoints = 
+	090, FLO
+	360, ANT
+	270, BUN
+## true_heading, <beacon>
+# this is where new arrivals enter at the boundary (approximately), e.g. 090 means planes will enter from the east, heading 270 (westbound)
+# inbound beacon is optional; choose a beacon name from the beacon list above; otherwise the first beacon from that list is chosen automatically
+
+airlines =
+	bel,	3,	a319/a320/a332/a333,	beeline,	nw
+	bel,	3,	a319/a320/a332/a333,	beeline,	s
+	aal,	1,	a333/e175,	american,	nw
+	aca,	1,	a333/e175,	aircanada,	n
+	ryr, 	2,	b738,		ryanair,	se
+#	oo-spw, 1, 	c210/c172, 0, n
+#	air,	2,	dh8d,		airliner,	n
+#	ph-abc,	1,	c271,		0,		nwe
+#	n-123ab,1,	f200
+## name, amount, planetype, pronunciation, <direction>
+# name is the 3 letter airline code, or a private regristration (with a land code, dash(-), and then the format)
+# amount determines the relative likelihood of appearance (e.g. 0=never, 1=occasionally, 10=frequently, etc)
+# planetype determines plane characteristics, put a dash (/) between multiple types for random type selection
+# pronuniation is the callsign, used for airlines
+# direction lets the plane arrive/depart in (roughly) a preferred direction:
+# give the direction as a string containing one or more of the letters nwse, for north west south east,
+# but make sure there are actually entrypoints defined at those directions (approximately); w needs an entrypoint near 270
+
+##############################################################
+[airport2]
+##############################################################
+
+name = Charleroi Airport; name of secondary airport
+code = CI			; two letter code, will be added to the runways and plane tags
+
+runways =
+	24,	24, N050.27.52.829, E004.28.09.951, 245
+## identifier, name, position, true_heading, <length>, <displaced>, <displaced2>, <elevation>, <glideslope>, <localizer>, <glideslope2>, <localizer2>, <beaconname, distance>, <beaconname2, distance2>
+# identifier must be unique to all other runways defined in this file
+
+traffic = 1			; average time between airplanes per active runway, in minutes (but this decreases at higher skill values)
+inboundbeacon = BUB		; beacon name, for arrivals (choose one from the beacon list above)
+entrypoints =
+	180
+# headings only
+
+airlines =
+	bel,	3,	a319/a320/a332/a333,	beeline, e
+
+climbaltitude = 5000	; maximum initial climb altitude in feet for departures
+
+sids =
+	NIK
+## name, position, <pronunciation>
+# you may also give just the name of a beacon from the beacon list, or the name of a sid from the airport1 sid list
+
+##############################################################
+[airport3]
+##############################################################
+
+name = Antwerpen Airport; name of secondary airport
+code = AW			; two letter code, will be added to the runways and plane tags
+
+runways =
+	29,	29, N051.11.15.748, E004.28.23.451, 290
+## identifier, name, position, true_heading, <length>, <displaced>, <displaced2>, <elevation>, <glideslope>, <localizer>, <glideslope2>, <localizer2>, <beaconname, distance>, <beaconname2, distance2>
+# identifier must be unique to all other runways defined in this file
+
+traffic = 1			; average time between airplanes per active runway, in minutes (but this decreases at higher skill values)
+inboundbeacon = NIK		; beacon name, for arrivals (choose one from the beacon list above)
+entrypoints =
+	090
+# headings only
+
+airlines =
+	ryr, 	3,	b738,	airliner,	s
+
+climbaltitude = 5000	; maximum initial climb altitude in feet for departures
+
+sids =
+	CIV
+## name, position, <pronunciation>
+# you may also give just the name of a beacon from the beacon list, or the name of a sid from the airport1 sid list
+
+# You can add more airports sections if needed ([airport3], etc).
+
+## positions
+# the last point will be automatically connected to the first point
+# note: the polygon must be convex, for example a rectangle, for it to work correctly
+# you may need to split up non-convex shapes into simpler convex polygons with some invisible lines
+# each polygon must have its own [area] section
+
+##############################################################
+[configurations]
+##############################################################
+
+config1 =
+	0,	25r,	landstart
+	0,	25l,	land
+## score, identifier, use, <offsetheading>, <nosid>
+# score is the score (skill) at which the runway will be activated
+# identifier is a unique runway name specified earlier
+# use is a string (without spaces) that may contain these words: start, land, rev, int, track
+# where rev means reversed use (opposite direction), int means intersection departure (takeoffs begin 30% down the rwy), track means backtrack after landing
+# offsetheading means planes will fly a specific heading just after takeoff (especially useful for allowing parallel takeoffs with divergent headings)
+# nosid option means planes will depart on the given offsetheading, with SID mode disabled
+# when rwy configurations are omited, two configs are automatically created, one for each rwy direction, with all runways active
+
+##############################################################
+[planetypes]
+##############################################################
+types = 
+	f200, 5, 140, 230, 2.9, 3.2, 1400, 1600, 115, 125, 1.1, 1.2, big jet
+	c271, 6, 90, 120, 2.9, 3.2, 1400, 1600, 90, 105, 1.1, 1.2, singleprop
+## type, category, minspeed, maxspeed, minturnrate, maxturnrate, mindescendrate, maxdescendrate, minfinalapproachspeed, maxfinalapproachspeed, minaccelrate, maxaccelrate, <manufacturer>
+# custom plane types, useful when specified custom types in the airline lists above, or to override default type properties
+# category is the weight category: 1 to 6, meaning superheavy=1, upperheavy, lowerheavy, uppermedium, lowermedium, light=6
+# turnrate is in degrees per second
+# descendrate is in feet per minute
+# accelrate is in knots per second
+# manufacturer name is optional, only used for private callsign pronunciation in usa mode
