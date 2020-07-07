@@ -20,7 +20,7 @@ This is a file to add EBBR (Brussels Airport) to the [Endless ATC](https://steam
 Endless ATC is a **simple** game. Compromises were made to make the game as realistic and as playable as possible.
 * **EBBR**
 	* Arrivals call at FL80 everywhere, instead of FL60 at FLO, FL110 at KERKY, etc. this is a limitation of the game, that can't be fixed. 
-	* Brussels Departures need to be climbed FL110 instead of FL70. This is (afaik) a bug in the game, and should be fixed soon.
+	* Departures need to be climbed FL110 instead of FL70. This is (afaik) a bug in the game, and should be fixed soon.
 	* When reaching higher skill levels, arrivals spawn really close to eachother and clog up the airspace around ANT and FLO. In Endless ATC, there is no "radar controller" that sequences the arrivals before entering you airspace. This is how the game is coded.
 * **EBCI**
 	* Arrival routings are incorrect. Endless ATC only allows one inbound VOR for secondary airports. [The routing BUB - NIVOR - GSY and the B-Arrivals](https://ops.skeyes.be/html/belgocontrol_static/eaip/eAIP_Main/graphics/eAIP/EBCI_STAR01_v10.pdf) can't be implemented.
