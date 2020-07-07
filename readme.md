@@ -1,5 +1,8 @@
 # Brussels Airport For Endless ATC
 This is a file to add EBBR (Brussels Airport) to the [Endless ATC](https://steamcommunity.com/app/666610) game.
+![EBBR, EBCI and EBAW in Endless ATC][logo]
+[logo]: https://github.com/aap007freak/EndlessATC_EBBR/blob/master/ebbr.png
+
 ## Installation
 ### Steam
 * Download EBBR.txt
