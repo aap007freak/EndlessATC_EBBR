@@ -24,12 +24,12 @@ Endless ATC is a **simple** game. Compromises were made to make the game as real
 * **EBBR**
 	* Arrivals call at FL80 everywhere, instead of FL60 at FLO, FL110 at KERKY, etc. this is a limitation of the game, that can't be fixed. 
 	* Departures need to be climbed FL110 instead of FL70. This is (afaik) a bug in the game, and should be fixed soon.
-	* When reaching higher skill levels, arrivals spawn really close to eachother and clog up the airspace around ANT and FLO. In Endless ATC, there is no "radar controller" that sequences the arrivals before entering you airspace. This is how the game is coded.
+	* When reaching higher skill levels, arrivals spawn really close to eachother and clog up the airspace around ANT and FLO. In Endless ATC, there is no "radar controller" that sequences the arrivals before entering your airspace. This is how the game is coded.
 * **EBCI**
 	* Arrival routings are incorrect. Endless ATC only allows one inbound VOR for secondary airports. [The routing BUB - NIVOR - GSY and the B-Arrivals](https://ops.skeyes.be/html/belgocontrol_static/eaip/eAIP_Main/graphics/eAIP/EBCI_STAR01_v10.pdf) can't be implemented.
 	* Arrivals call at FL90. This is a bug in Endless ATC.
 * **EBAW**
 
-Notice other bugs or issues? Please open an issue on [issue on github](https://github.com/aap007freak/EndlessATC_EBBR/issues).
+Notice other bugs or issues? Please open an [issue on github](https://github.com/aap007freak/EndlessATC_EBBR/issues).
 ## Credits
 All coordinates and other information with respect to EBBR where directly taken from the [eAIP](https://ops.skeyes.be/html/belgocontrol_static/eaip/eAIP_Main/html/index-en-GB.html).

@@ -6,8 +6,8 @@ zoom = 7.0 			; default zoom level, increase to zoom in
 elevation = 175 			; ground altitude in feet
 floor = 1500 			; minimum selectable altitude
 descendaltitude = 8000 		; minimum initial altitude for arrivals
-ceiling = 7000 			; maximum selectable altitude
-above = 0 			; SID top altitude in feet (above ceiling)
+ceiling = 19000 			; maximum selectable altitude
+above = 1000 			; SID top altitude in feet (above ceiling)
 transition = 5000		; lowest altitude in feet to be displayed as flight level
 speedrestriction = 18, 220 	; radius in NM, and speed in knots
 usa = false			; American-style callsign pronunciation and runway names
@@ -23,6 +23,8 @@ beacons =
 	HUL,	N050.44.58.138,	E004.38.29.900, 0, Huldenberg
 	BUN, 	N051.07.07.089,	E004.50.31.549, 0, Bruno 
 	NIK, 	N051.09.54.291, E004.11.02.180, 0, Nicky
+	SPI, 	N050.30.52.999, E005.37.24.999, 0, Sprimont
+	LNO,    N050.35.09.290, E005.42.36.990, 0, Olno
 
 [airport1]
 name = Brussels Airport; name of the main airport
@@ -35,21 +37,22 @@ sids =
 	DENUT, 	N051.14.10.039,	E003.39.27.359,		denut
 	HELEN, 	N051.14.07.130,	E003.52.10.959,		helen
 	CIV
-	HUL
+	SPI
+	LNO
 entrypoints = 
 	090, FLO
 	360, ANT
 	270, BUN
 airlines =
-	bel,	3,	a319/a320/a332/a333,	beeline,	nw
+	bel,	3,	a319/a320/a332/a333,	beeline,	w
+	bel,	2,	a319/a320/a332/a333,	beeline,	n
 	bel,	3,	a319/a320/a332/a333,	beeline,	s
+	jaf,	3,	b738/b789,	beauty, s
 	aal,	1,	B77W,	american,	nw
 	aca,	1,	B789,	air canada,	n
 	ryr, 	2,	b738,		ryan air,	se
-#	oo-spw, 1, 	c210/c172, 0, n
-#	air,	2,	dh8d,		airliner,	n
-#	ph-abc,	1,	c271,		0,		nwe
-#	n-123ab,1,	f200
+	dlh,	1,	a319/a320,	lufthansa, se
+	ual,	1,	b789,	united,	nw
 
 [airport2]
 name = Charleroi Airport
@@ -61,7 +64,10 @@ inboundbeacon = BUB		; beacon name, for arrivals (choose one from the beacon lis
 entrypoints =
 	360
 airlines =
-	ryr, 	3,	b738,	airliner,	ns
+	ryr, 	3,	b738,	ryan air,	n
+	oo-spw, 1, 	c210/c172, 0, n
+
+	
 climbaltitude = 5000	; maximum initial climb altitude in feet for departures
 sids =
 	CIV
@@ -80,7 +86,325 @@ airlines =
 climbaltitude = 5000	; maximum initial climb altitude in feet for departures
 sids =
 	NIK
+
+#first the tma's are defined, then the cta's, then the ctr's (you look at name to see which area)
+[area1]	
+shape = polygon		; circle or polygon
+altitude = 1500		; minimum allowed altitude in feet
+#name = 1		; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 0, 0	; <position of label>
+points =
+	N50.38.23, E004.29.17
+	N50.41.11, E004.29.20
+	N51.02.51, E004.59.55
+	N51.10.05, E004.47.46
+	N51.02.07, E004.06.21
+	N50.38.52, E003.52.31
+	N050.40.36.000, E004.04.15.000
+	N050.40.37.471, E004.04.11.325
+	N050.40.19.635, E004.04.52.171
+	N050.39.59.607, E004.05.30.399
+	N050.39.37.541, E004.06.05.719
+	N050.39.13.604, E004.06.37.860
+	N050.38.47.981, E004.07.06.580
+	N050.38.20.867, E004.07.31.661
+	N050.37.52.468, E004.07.52.912
+	N050.37.23.002, E004.08.10.173
+	N050.36.52.693, E004.08.23.316
+	N050.36.21.773, E004.08.32.241
+	N050.35.50.476, E004.08.36.884 
+	N050.35.19.042, E004.08.37.211
+	N050.34.47.709, E004.08.33.222 
+	N050.34.16.716, E004.08.24.950
+	N050.33.46.299, E004.08.12.460
+	N050.33.16.688, E004.07.55.850
+	N050.32.48.109, E004.07.35.247
+	N050.32.20.778, E004.07.10.809
+	N50.32.05, E004.06.55
+	N50.38.23, E004.29.17
 	
+[area2]	
+shape = polygon		; circle or polygon
+altitude = 2500		; minimum allowed altitude in feet
+#name = 2		; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = -26.18, -0.75	; <position of label>
+points =
+	N50.30.59, E003.44.10
+	N50.40.12, E003.36.09 
+	N51.14.40, E004.00.56 
+	N51.14.49, E004.01.52
+	N51.14.48, E004.03.17
+	N51.15.31, E004.04.51
+	N51.16.10, E004.07.04
+	N51.18.54, E004.11.31
+	N51.21.07, E004.14.19
+	N51.20.54, E004.14.40
+	N51.21.14, E004.14.31  
+	N51.17.26, E004.25.22 
+	N51.18.07, E004.30.11 
+	N51.18.35, E004.33.25 
+	N51.10.05, E004.47.46 
+	N51.02.07, E004.06.21 
+	N50.38.52, E003.52.31
+	N050.40.36.000, E004.04.15.000
+	N050.40.37.471, E004.04.11.325
+	N050.40.19.635, E004.04.52.171
+	N050.39.59.607, E004.05.30.399
+	N050.39.37.541, E004.06.05.719
+	N050.39.13.604, E004.06.37.860
+	N050.38.47.981, E004.07.06.580
+	N050.38.20.867, E004.07.31.661
+	N050.37.52.468, E004.07.52.912
+	N050.37.23.002, E004.08.10.173
+	N050.36.52.693, E004.08.23.316
+	N050.36.21.773, E004.08.32.241
+	N050.35.50.476, E004.08.36.884 
+	N050.35.19.042, E004.08.37.211
+	N050.34.47.709, E004.08.33.222 
+	N050.34.16.716, E004.08.24.950
+	N050.33.46.299, E004.08.12.460
+	N050.33.16.688, E004.07.55.850
+	N050.32.48.109, E004.07.35.247
+	N050.32.20.778, E004.07.10.809
+	N50.32.05, E004.06.55
+    N50.30.39, E004.01.51
+    N50.29.20, E003.48.40
+	 
+[area3]	
+shape = polygon		; circle or polygon
+altitude = 3500		; minimum allowed altitude in feet
+#name = 3A		; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = -37.2, 2.7	; <position of label>
+points =
+	N50.40.12, E003.36.09 
+	N50.53.34, E003.24.21 
+	N51.03.14, E003.28.18 
+	N51.12.56, E003.56.55 
+	N51.13.17, E003.58.17 
+	N51.13.53, E003.59.14 
+	N51.14.27, E003.59.46    
+	N51.14.40, E004.00.56
+	
+[area4]	
+shape = polygon		; circle or polygon
+altitude = 3500		; minimum allowed altitude in feet
+#name = 3B		; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = -3.8, 31.1	; <position of label>
+points =
+	N51.20.54, E004.14.40 
+	N51.21.04, E004.15.36
+	N51.21.15, E004.16.10
+	N51.21.33, E004.15.32
+	N51.22.34, E004.14.55
+	N51.22.34, E004.14.55
+	N51.22.46, E004.20.22
+	N51.22.33, E004.20.42
+	N51.21.55, E004.21.13
+	N51.21.42, E004.21.50
+	N51.21.41, E004.22.34
+	N51.21.41, E004.22.51
+	N51.21.32, E004.23.17
+	N51.21.42, E004.24.57
+	N51.22.01, E004.25.57
+	N51.22.29, E004.25.46
+	N51.22.38, E004.25.58
+	N51.24.22, E004.23.56
+	N51.25.17, E004.23.11
+	N51.26.10, E004.23.02
+	N51.26.40, E004.22.41
+	N51.26.40, E004.22.41
+	N51.27.34, E004.25.26
+	N51.27.59, E004.26.26
+	N51.28.10, E004.27.17
+	N51.28.11, E004.28.05
+	N51.28.42, E004.28.36
+	N51.28.39, E004.29.07
+	N51.28.48, E004.30.11
+	N51.18.07, E004.30.11
+	
+[area5]	
+shape = polygon		; circle or polygon
+altitude = 2500		; minimum allowed altitude in feet
+#name = 4		; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 13.45, 17.50	; <position of label>
+points =
+	N51.18.35, E004.33.25
+	N051.19.38.000, E004.40.52.000
+	N051.19.37.292, E004.40.57.306
+	N051.19.02.823, E004.44.28.518
+	N051.18.16.880, E004.47.54.012
+	N051.17.19.822, E004.51.12.187
+	N051.16.12.095, E004.54.21.504
+	N051.14.54.227, E004.57.20.498
+	N51.13.32, E004.59.55
+	N51.02.51, E004.59.55
+	N51.18.35, E004.33.25
+
+[area6]	
+shape = polygon		; circle or polygon
+altitude = 3500		; minimum allowed altitude in feet
+#name = 5		; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 7.1, -8.2	; <position of label>
+points =
+	N50.55.00, E004.48.45
+	N50.53.45, E004.54.25
+	N50.40.48, E004.38.01
+	N50.38.23, E004.29.17
+	N50.41.11, E004.29.20
+	
+[area7]	
+shape = polygon		; circle or polygon
+altitude = 5500		; minimum allowed altitude in feet
+#name = 7		; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 17.92, 22.13	; <position of label>
+points =
+	N51.13.32, E004.59.55
+	N51.06.05, E005.10.00
+	N51.18.45, E005.10.00
+	N51.18.55, E005.09.02 
+	N51.19.01, E005.08.18 
+	N51.19.41, E005.08.25
+	N51.19.38, E005.08.00
+	N51.19.38, E004.40.52
+	N051.19.37.292, E004.40.57.306
+	N051.19.02.823, E004.44.28.518
+	N051.18.16.880, E004.47.54.012
+	N051.17.19.822, E004.51.12.187
+	N051.16.12.095, E004.54.21.504
+	N051.14.54.227, E004.57.20.498
+	
+[area8]	
+shape = polygon		; circle or polygon
+altitude = 3500		; minimum allowed altitude in feet
+#name = 8		; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 15.0, -6.8	; <position of label>
+points =
+	N50.53.45, E004.54.25
+	N050.51.07.000, E005.07.12.000 
+	N050.50.53.238, E005.07.00.145
+	N050.47.54.067, E005.04.08.333 
+	N050.45.04.952, E005.00.52.843 
+	N050.42.27.147, E004.57.15.195 
+	N050.40.01.820, E004.53.17.059 
+	N50.38.10, E004.49.49
+	N50.40.48, E004.38.01
+
+[area9]	
+shape = polygon		; circle or polygon
+altitude = 3500		; minimum allowed altitude in feet
+#name = 9		; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 18.7, 13.6	; <position of label>
+points =
+	N51.06.34, E004.59.55
+	N51.09.33, E005.05.19	
+	N51.06.05, E005.10.00
+	N51.01.22, E005.13.15
+	N51.02.51, E004.59.55
+	
+[area10]	
+shape = polygon		; circle or polygon
+altitude = 2500		; minimum allowed altitude in feet
+#name = CI1		; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 18.7, 13.6	; <position of label>
+points =	
+	N50.29.20, E003.48.40		
+	N50.30.39, E004.01.51
+	N50.38.23, E004.29.17
+	N050.35.02.000, E004.42.48.000 
+	N050.35.01.859, E004.42.51.327 
+	N050.34.58.587, E004.43.36.466 
+	N050.34.52.825, E004.44.20.980 
+	N050.34.44.617, E004.45.04.531 
+	N050.34.34.025, E004.45.46.784 
+	N050.34.21.131, E004.46.27.417 
+	N050.34.06.034, E004.47.06.118 
+	N050.33.48.848, E004.47.42.594 
+	N050.33.29.706, E004.48.16.565 
+	N050.33.08.753, E004.48.47.773 
+	N050.32.46.150, E004.49.15.980 
+	N050.32.22.069, E004.49.40.972
+	N050.31.56.694, E004.50.02.560
+	N050.31.30.220, E004.50.20.581
+	N050.31.02.847, E004.50.34.898
+	N050.30.34.784, E004.50.45.405
+	N50.30.18, E004.50.49
+	N50.23.16, E004.52.20
+	N50.18.42, E004.16.27
+	N50.29.20, E003.48.40
+	
+[area11]	
+shape = polygon		; circle or polygon
+altitude = 2500		; minimum allowed altitude in feet
+#name = CI2A	; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 18.7, 13.6	; <position of label>
+points =	
+	N50.31.22, E004.50.25
+	N50.29.28, E004.42.01
+	N050.29.53.108, E004.41.50.692 
+	N050.30.20.240, E004.41.35.674 
+	N050.30.46.435, E004.41.16.990
+	N050.31.11.494, E004.40.54.781
+	N050.31.35.226, E004.40.29.214 
+	N050.31.57.448, E004.40.00.484
+	N050.32.17.992, E004.39.28.809
+	N050.32.36.700, E004.38.54.430 
+	N050.32.53.430, E004.38.17.608
+	N050.33.08.054, E004.37.38.625
+	N050.33.20.459, E004.36.57.779
+	N050.33.30.550, E004.36.15.381
+	N050.33.38.252, E004.35.31.756
+	N050.33.43.503, E004.34.47.237 
+	N050.33.46.266, E004.34.02.165
+	N050.33.46.517, E004.33.16.885
+	N050.33.44.256, E004.32.31.744 
+	N050.33.44.000, E004.32.28.000
+	N50.35.02, E004.42.48
+	
+[area12]	
+shape = polygon		; circle or polygon
+altitude = 2000		; minimum allowed altitude in feet
+#name = CI2B	; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 18.7, 13.6	; <position of label>
+points =	
+      N50.38.23, E004.29.17
+      N50.36.23, E004.29.12
+	  N50.33.44, E004.32.28
+	  
+[area13]	
+shape = polygon		; circle or polygon
+altitude = 3500		; minimum allowed altitude in feet
+#name = CI3A	; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 18.7, 13.6	; <position of label>
+points =	
+	N50.38.23, E004.29.17 
+	N50.40.48, E004.38.01 
+	N50.36.40, E004.56.29
+	N50.30.53, E004.57.43 
+	N50.29.00, E004.51.06
+	
+[area14]	
+shape = polygon		; circle or polygon
+altitude = 3500		; minimum allowed altitude in feet
+#name = CI3B	; <name, if omited then planes inbound the main airport may enter this area>
+#draw = 1		; <number of invisible lines at the end of the polygon, omit for a full polygon>
+labelpos = 18.7, 13.6	; <position of label>
+points =	
+	N50.30.53, E004.57.43 
+	N50.24.07, E004.59.10
+	N50.23.16, E004.52.20
 	
 [configurations]
 #25's: westerly config
