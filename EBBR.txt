@@ -31,7 +31,8 @@ name = Brussels Airport; name of the main airport
 code = EBBR			; four letter code, displayed in airport menu (required)
 runways = 
 	25r,	25r, N050.54.41.558, E004.29.57.800, 245, 10535, 0, 0, 175, 3
-	25l,	25l, N050.53.56.191, E004.31.23.879, 250, 11936, 0, 0, 175, 3 
+	25l,	25l, N050.53.56.191, E004.31.23.879, 250, 11936, 0, 0, 175, 3
+	19, 19, N050.54.39.639, E004.30.04.460, 194, 9800; 0, 0, 175, 3
 climbaltitude = 6000 		; maximum initial climb altitude in feet or departures
 sids = 
 	DENUT, 	N051.14.10.039,	E003.39.27.359,		denut
@@ -64,8 +65,8 @@ inboundbeacon = BUB		; beacon name, for arrivals (choose one from the beacon lis
 entrypoints =
 	360
 airlines =
-	ryr, 	2,	b738,	ryan air,	n
-		ryr, 	2,	b738,	ryan air,	e
+	ryr, 	1,	b738,	ryan air,	w
+	ryr, 	1,	b738,	ryan air,	e
 
 	oo-spw, 1, 	c210/c172, 0, n
 
@@ -89,6 +90,11 @@ airlines =
 climbaltitude = 5000	; maximum initial climb altitude in feet for departures
 sids =
 	NIK
+	DENUT, 	N051.14.10.039,	E003.39.27.359,		denut
+	HELEN, 	N051.14.07.130,	E003.52.10.959,		helen
+	GILOM, 	N050.45.07.268,	E004.46.26.799,		gilom
+	PUTTY,  N051.21.57.070,	E004.20.15.410, 	putty
+
 
 #first the tma's are defined, then the cta's, then the ctr's (you look at name to see which area)
 [area1]	
@@ -487,6 +493,21 @@ config1 =
 	0,	25l,	land
 	8, 24, landstart
 	12, 29, landstart
+	20, 19, start
+	
+#01: easterly config
+config2 =
+	0,	19, landrev	
+	0,	25l,	startrev
+	8, 24, landstartrev
+	12, 29, landstartrev
+	
+#07's: easterly config
+config3 =
+	0,	25r,	landrev
+	0,	25l,	startrev
+	8, 24, landstartrev
+	12, 29, landstartrev
 
 
 
