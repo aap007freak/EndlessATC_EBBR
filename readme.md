@@ -1,6 +1,5 @@
 
 # Brussels Airport For Endless ATC
-[![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://github.com/aap007freak/EndlessATC_EBBR/releases)
 
 This is a file to add EBBR (Brussels Airport) to the [Endless ATC](https://steamcommunity.com/app/666610) game.
 
@@ -9,10 +8,10 @@ This is a file to add EBBR (Brussels Airport) to the [Endless ATC](https://steam
 
 ## Installation
 ### Steam
-* [Download EBBR.txt](https://github.com/aap007freak/EndlessATC_EBBR/releases)
+* Download EBBR.txt](https://github.com/aap007freak/EndlessATC_EBBR/releases)
 * Put it in `Steam/steamapps/common/endless ATC/locations` 
 ### Android
-* [Download EBBR.txt](https://github.com/aap007freak/EndlessATC_EBBR/releases)
+* Download EBBR.txt
 * Put it in `Android/data/com.dirgtrats.endlessatc/files`
 ## Features
 ### Implemented
