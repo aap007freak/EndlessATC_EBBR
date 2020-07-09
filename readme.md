@@ -8,7 +8,7 @@ This is a file to add EBBR (Brussels Airport) to the [Endless ATC](https://steam
 
 ## Installation
 ### Steam
-* Download EBBR.txt](https://github.com/aap007freak/EndlessATC_EBBR/releases)
+* Download EBBR.txt
 * Put it in `Steam/steamapps/common/endless ATC/locations` 
 ### Android
 * Download EBBR.txt
