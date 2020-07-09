@@ -72,7 +72,8 @@ airlines =
 	
 climbaltitude = 5000	; maximum initial climb altitude in feet for departures
 sids =
-	CIV, SPI
+	CIV
+	SPI
 
 [airport3]
 name = Antwerpen Airport
